@@ -172,6 +172,8 @@ export default tseslint.config(
           '/=': 'ignore',
         },
       }],
+      // Leave to taste.
+      '@stylistic/padded-blocks': 'off',
       // Requires semicolons in type declarations.
       '@stylistic/member-delimiter-style': ['error', {
         multiline: {
