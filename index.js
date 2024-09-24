@@ -1,12 +1,12 @@
 // @ts-check
 
 import js from '@eslint/js';
-import { config, configs as tsEslintConfigs, parser } from 'typescript-eslint';
+import tseslint from 'typescript-eslint';
 import globals from 'globals';
 import vueEslintParser from 'vue-eslint-parser';
 import vueEslint from 'eslint-plugin-vue';
 
-export default config(
+export default tseslint.config(
   {
     ignores: [
       // Ignore compiled Nuxt files
@@ -15,9 +15,9 @@ export default config(
     ],
   },
   js.configs.recommended,
-  ...tsEslintConfigs.recommended,
+  ...tseslint.configs.recommended,
   // @ts-ignore
-  vueEslint.configs['flat/recommended'],
+  // vueEslint.configs['flat/recommended'],
   {
     languageOptions: {
       globals: {
@@ -27,7 +27,7 @@ export default config(
       },
       parser: vueEslintParser,
       parserOptions: {
-        parser: parser,
+        parser: tseslint.parser,
         sourceType: 'module',
         ecmaVersion: 'latest',
         ecmaFeatures: {
