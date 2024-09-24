@@ -19,12 +19,12 @@ export default tseslint.config(
       '.output/**',
     ],
   },
-  // {
-  //   name: '@anoesj/vue-ts/plugins',
-  //   plugins: {
-  //     '@stylistic': stylistic,
-  //   },
-  // },
+  {
+    name: '@anoesj/vue-ts/plugins',
+    plugins: {
+      '@stylistic': stylistic,
+    },
+  },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   stylistic.configs['recommended-flat'],
