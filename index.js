@@ -145,8 +145,9 @@ export default tseslint.config(
       '@stylistic/template-tag-spacing': ['error', 'never'],
       '@stylistic/template-curly-spacing': ['error', 'never'],
       '@stylistic/space-before-blocks': 'error',
-      '@stylistic/space-before-function-paren': 'error',
+      '@stylistic/space-before-function-paren': ['error', 'always'],
       '@stylistic/space-in-parens': ['error', 'never'],
+      '@stylistic/arrow-parens': ['error', 'always'],
       '@stylistic/spaced-comment': ['warn', 'always', {
         // handles dividers
         exceptions: ['*', '/'],
