@@ -8,12 +8,17 @@ import vueEslintParser from 'vue-eslint-parser';
 import vueEslint from 'eslint-plugin-vue';
 
 export default tseslint.config(
+  // Keep this first, so users can omit and override the ignores.
   {
     ignores: [
+      // Ignore compiled Vue files
+      'dist/**',
       // Ignore compiled Nuxt files
       '.nuxt/**',
       '.output/**',
     ],
+  },
+  {
     plugins: {
       '@stylistic': stylistic,
     },

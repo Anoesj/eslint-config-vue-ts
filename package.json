@@ -1,12 +1,12 @@
 {
-  "name": "@anoesj/eslint-config-anoesj-nuxt",
+  "name": "@anoesj/eslint-config-anoesj-vue-ts",
   "version": "0.0.0",
   "description": "Default ESLint config for Anoesj - Nuxt edition",
   "type": "module",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/anoesj/eslint-config-anoesj-nuxt.git"
+    "url": "git+ssh://git@github.com/anoesj/eslint-config-anoesj-vue-ts.git"
   },
   "keywords": [
     "eslint",
@@ -15,9 +15,9 @@
   "author": "Anoesj Sadraee",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/anoesj/eslint-config-anoesj-nuxt/issues"
+    "url": "https://github.com/anoesj/eslint-config-anoesj-vue-ts/issues"
   },
-  "homepage": "https://github.com/anoesj/eslint-config-anoesj-nuxt#readme",
+  "homepage": "https://github.com/anoesj/eslint-config-anoesj-vue-ts#readme",
   "peerDependencies": {
     "eslint": ">= 9"
   },
