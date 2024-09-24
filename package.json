@@ -1,6 +1,6 @@
 {
   "name": "@anoesj/eslint-config-anoesj-vue-ts",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Default ESLint config for Anoesj - Nuxt edition",
   "type": "module",
   "main": "index.js",
