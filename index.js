@@ -1,8 +1,9 @@
 // @ts-check
 
+import globals from 'globals';
 import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
-import globals from 'globals';
+import stylistic from '@stylistic/eslint-plugin';
 import vueEslintParser from 'vue-eslint-parser';
 import vueEslint from 'eslint-plugin-vue';
 
@@ -13,9 +14,13 @@ export default tseslint.config(
       '.nuxt/**',
       '.output/**',
     ],
+    plugins: {
+      '@stylistic': stylistic,
+    },
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
+  stylistic.configs['recommended-flat'],
   // @ts-ignore
   // vueEslint.configs['flat/recommended'],
   {
@@ -37,36 +42,11 @@ export default tseslint.config(
     },
     files: ['*.ts', '*.vue'],
     rules: {
-      // Basic JS rules
-      'no-tabs': ['error', {
-        allowIndentationTabs: false,
-      }],
-      'indent': ['error', 2, {
-        VariableDeclarator: 'first',
-        SwitchCase: 1,
-      }],
-      'max-len': ['warn', {
-        code: 140,
-      }],
-      'comma-dangle': ['error', {
-        arrays: 'always-multiline',
-        objects: 'always-multiline',
-        imports: 'always-multiline',
-        exports: 'always-multiline',
-        functions: 'only-multiline', // do not require in multiline function calls, but do allow
-      }],
-      'comma-spacing': ['error', {
-        before: false,
-        after: true,
-      }],
-      'comma-style': ['error', 'last'],
-      'brace-style': ['error', 'stroustrup', {
-        allowSingleLine: false,
-      }],
-      'arrow-spacing': ['error', {
-        before: true,
-        after: true,
-      }],
+
+      /***********************
+      *     Basic rules      *
+      ***********************/
+
       'no-debugger': 'warn',
       'no-case-declarations': 'warn',
       'array-callback-return': 'warn',
@@ -74,11 +54,49 @@ export default tseslint.config(
         // Allow usage of != null
         null: 'ignore',
       }],
-      'quote-props': ['error', 'consistent-as-needed'],
-      'quotes': ['error', 'single', {
+      'arrow-body-style': 'off',
+      'curly': ['warn', 'all'],
+      'no-var': 'error',
+      'prefer-const': 'error',
+      'prefer-destructuring': ['error', {
+        object: true,
+        array: false,
+      }],
+      'prefer-template': 'error',
+      'prefer-spread': 'error',
+      'no-fallthrough': ['error', {
+        commentPattern: 'fallthrough',
+      }],
+
+
+      /***********************
+      *   Stylistic rules    *
+      ***********************/
+
+      '@stylistic/indent': ['error', 2, {
+        VariableDeclarator: 'first',
+        SwitchCase: 1,
+      }],
+      '@stylistic/max-len': ['warn', {
+        code: 140,
+      }],
+      '@stylistic/comma-dangle': ['error', {
+        arrays: 'always-multiline',
+        objects: 'always-multiline',
+        imports: 'always-multiline',
+        exports: 'always-multiline',
+        functions: 'only-multiline', // do not require in multiline function calls, but do allow
+      }],
+      '@stylistic/comma-style': ['error', 'last'],
+      '@stylistic/brace-style': ['error', 'stroustrup', {
+        allowSingleLine: false,
+      }],
+      '@stylistic/quote-props': ['error', 'consistent-as-needed'],
+      '@stylistic/quotes': ['error', 'single', {
         allowTemplateLiterals: true,
       }],
-      'no-multi-spaces': ['warn', {
+      '@stylistic/no-confusing-arrow': 'error',
+      '@stylistic/no-multi-spaces': ['warn', {
         ignoreEOLComments: true,
         exceptions: {
           BinaryExpression: false,
@@ -87,46 +105,61 @@ export default tseslint.config(
           VariableDeclarator: true,
         },
       }],
-      'block-spacing': ['error', 'always'],
-      'object-curly-spacing': ['error', 'always'],
-      'array-bracket-spacing': ['error', 'never'],
-      'computed-property-spacing': ['error', 'never', {
-        enforceForClassMembers: true,
+      '@stylistic/no-tabs': ['error', {
+        allowIndentationTabs: false,
       }],
-      'keyword-spacing': ['error', {
+      '@stylistic/array-bracket-spacing': ['error', 'never'],
+      '@stylistic/arrow-spacing': ['error', {
         before: true,
         after: true,
       }],
-      'space-before-blocks': 'error',
-      'space-before-function-paren': 'error',
-      'space-in-parens': ['error', 'never'],
-      'spaced-comment': ['warn', 'always', {
-        exceptions: ['*', '/'], // handles dividers
-        markers: ['/'], // handles `/// <reference />` comments
+      '@stylistic/block-spacing': ['error', 'always'],
+      '@stylistic/comma-spacing': ['error', {
+        before: false,
+        after: true,
       }],
-      'switch-colon-spacing': ['error', {
+      '@stylistic/computed-property-spacing': ['error', 'never', {
+        enforceForClassMembers: true,
+      }],
+      '@stylistic/keyword-spacing': ['error', {
+        before: true,
+        after: true,
+      }],
+      '@stylistic/object-curly-spacing': ['error', 'always'],
+      '@stylistic/rest-spread-spacing': ['error', 'never'],
+      '@stylistic/switch-colon-spacing': ['error', {
         after: true,
         before: false,
       }],
-      'template-tag-spacing': ['error', 'never'],
-      'wrap-regex': 'error',
-      'semi-style': ['error', 'last'],
-      'arrow-body-style': 'off',
-      'curly': ['warn', 'all'],
-      'no-var': 'error',
-      'no-confusing-arrow': 'error',
-      'prefer-const': 'error',
-      'prefer-destructuring': ['error', {
-        object: true,
-        array: false,
+      '@stylistic/template-tag-spacing': ['error', 'never'],
+      '@stylistic/template-curly-spacing': ['error', 'never'],
+      '@stylistic/space-before-blocks': 'error',
+      '@stylistic/space-before-function-paren': 'error',
+      '@stylistic/space-in-parens': ['error', 'never'],
+      '@stylistic/spaced-comment': ['warn', 'always', {
+        // handles dividers
+        exceptions: ['*', '/'],
+        // handles `/// <reference />` comments
+        markers: ['/'],
       }],
-      'prefer-template': 'error',
-      'prefer-spread': 'error',
-      'rest-spread-spacing': ['error', 'never'],
-      'template-curly-spacing': ['error', 'never'],
-      'no-fallthrough': ['error', {
-        commentPattern: 'fallthrough',
+      '@stylistic/wrap-regex': 'error',
+      '@stylistic/semi-style': ['error', 'last'],
+      '@stylistic/semi': ['error', 'always', {
+        omitLastInOneLineBlock: false,
       }],
+      // Requires semicolons in type declarations.
+      '@stylistic/member-delimiter-style': ['error', {
+        multiline: {
+          delimiter: 'semi',
+          requireLast: true,
+        },
+        singleline: {
+          delimiter: 'semi',
+          requireLast: true,
+        },
+        multilineDetection: 'brackets',
+      }],
+
 
       /***********************
       *   TypeScript rules   *
@@ -149,13 +182,6 @@ export default tseslint.config(
       // Turned off because this has false positives on TS function overloading.
       'no-redeclare': 'off',
 
-      // Turns off regular 'semi' rule and turns on '@typescript-eslint/semi' rule
-      // instead (this will make Automatic Semicolon Insertion work with TS declarations).
-      'semi': 'off',
-      '@typescript-eslint/semi': ['error', 'always', {
-        omitLastInOneLineBlock: false,
-      }],
-
       // Turn off default ESLint rule that disallows TS class method overloading:
       'no-dupe-class-members': 'off',
       '@typescript-eslint/no-dupe-class-members': 'error',
@@ -176,20 +202,6 @@ export default tseslint.config(
       //   prefer: 'type-imports',
       //   fixStyle: 'inline-type-imports',
       // }],
-
-      // Requires semicolons in type declarations.
-      // TODO: We may need to include ESLint Stylistic rules for this. See: https://eslint.style/
-      '@typescript-eslint/member-delimiter-style': ['error', {
-        multiline: {
-          delimiter: 'semi',
-          requireLast: true,
-        },
-        singleline: {
-          delimiter: 'semi',
-          requireLast: true,
-        },
-        multilineDetection: 'brackets',
-      }],
 
       /************************
        *  Vue specific rules  *
@@ -271,7 +283,7 @@ export default tseslint.config(
   {
     files: ['**/*.vue'],
     rules: {
-      indent: 'off',
+      '@stylistic/indent': 'off',
     },
   },
 );
