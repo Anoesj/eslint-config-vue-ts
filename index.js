@@ -99,7 +99,10 @@ export default tseslint.config(
         objects: 'always-multiline',
         imports: 'always-multiline',
         exports: 'always-multiline',
-        functions: 'only-multiline', // do not require in multiline function calls, but do allow
+        functions: 'always-multiline', // do not require in multiline function calls, but do allow
+        enums: 'always-multiline',
+        generics: 'always-multiline',
+        tuples: 'always-multiline',
       }],
       '@stylistic/comma-style': ['error', 'last'],
       '@stylistic/brace-style': ['error', 'stroustrup', {
