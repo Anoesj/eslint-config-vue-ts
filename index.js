@@ -19,12 +19,12 @@ export default tseslint.config(
       '.output/**',
     ],
   },
-  {
-    name: '@anoesj/vue-ts/plugins',
-    plugins: {
-      '@stylistic': stylistic,
-    },
-  },
+  // {
+  //   name: '@anoesj/vue-ts/plugins',
+  //   plugins: {
+  //     '@stylistic': stylistic,
+  //   },
+  // },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   stylistic.configs['recommended-flat'],
@@ -162,7 +162,7 @@ export default tseslint.config(
       '@stylistic/semi': ['error', 'always', {
         omitLastInOneLineBlock: false,
       }],
-      '@stylistic/js/multiline-ternary': ['error', 'always-multiline'],
+      '@stylistic/multiline-ternary': ['error', 'always-multiline'],
       '@stylistic/operator-linebreak': ['error', 'before', {
         overrides: {
           '=': 'after',
