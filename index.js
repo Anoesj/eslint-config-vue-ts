@@ -165,11 +165,11 @@ export default tseslint.config(
       '@stylistic/multiline-ternary': ['error', 'always-multiline'],
       '@stylistic/operator-linebreak': ['error', 'before', {
         overrides: {
-          '=': 'after',
-          '+=': 'after',
-          '-=': 'after',
-          '*=': 'after',
-          '/=': 'after',
+          '=': 'ignore',
+          '+=': 'ignore',
+          '-=': 'ignore',
+          '*=': 'ignore',
+          '/=': 'ignore',
         },
       }],
       // Requires semicolons in type declarations.
