@@ -163,6 +163,15 @@ export default tseslint.config(
         omitLastInOneLineBlock: false,
       }],
       '@stylistic/js/multiline-ternary': ['error', 'always-multiline'],
+      '@stylistic/operator-linebreak': ['error', 'before', {
+        overrides: {
+          '=': 'after',
+          '+=': 'after',
+          '-=': 'after',
+          '*=': 'after',
+          '/=': 'after',
+        },
+      }],
       // Requires semicolons in type declarations.
       '@stylistic/member-delimiter-style': ['error', {
         multiline: {
