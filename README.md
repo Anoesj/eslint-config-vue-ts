@@ -42,4 +42,7 @@ export default config(
 );
 ```
 
+## More
 See https://eslint.org/docs/developer-guide/shareable-configs for more info on shareable ESLint configs.
+
+Run `pnpx @eslint/config-inspector@latest` (or `npx`, `bunx` etc.) to inspect the rules in your project in order to debug your ESLint config.

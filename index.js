@@ -10,6 +10,7 @@ import vueEslint from 'eslint-plugin-vue';
 export default tseslint.config(
   // Keep this first, so users can omit and override the ignores.
   {
+    name: '@anoesj/vue-ts/ignores',
     ignores: [
       // Ignore compiled Vue files
       'dist/**',
@@ -18,17 +19,19 @@ export default tseslint.config(
       '.output/**',
     ],
   },
-  {
-    plugins: {
-      '@stylistic': stylistic,
-    },
-  },
+  // {
+  //   name: '@anoesj/vue-ts/plugins',
+  //   plugins: {
+  //     '@stylistic': stylistic,
+  //   },
+  // },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   stylistic.configs['recommended-flat'],
   // @ts-ignore
   ...vueEslint.configs['flat/recommended'],
   {
+    name: '@anoesj/vue-ts/base',
     languageOptions: {
       globals: {
         ...globals.es2021,
@@ -159,6 +162,7 @@ export default tseslint.config(
       '@stylistic/semi': ['error', 'always', {
         omitLastInOneLineBlock: false,
       }],
+      '@stylistic/js/multiline-ternary': ['error', 'always-multiline'],
       // Requires semicolons in type declarations.
       '@stylistic/member-delimiter-style': ['error', {
         multiline: {
@@ -293,6 +297,7 @@ export default tseslint.config(
     },
   },
   {
+    name: '@anoesj/vue-ts/vue-exceptions',
     files: ['**/*.vue'],
     rules: {
       '@stylistic/indent': 'off',
