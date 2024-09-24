@@ -25,15 +25,24 @@ You need to have NPM package `eslint` installed in order to start using ESLint w
 }
 ```
 
-Usage:
+## Usage
+### Without type checking
 ```js
 import nuxtEslint from '@anoesj/eslint-config-anoesj-nuxt';
 
 export default [
-  {
-    ...nuxtEslint,
-  },
+  ...nuxtEslint,
 ];
+```
+
+### With type checking
+```js
+import nuxtEslint from '@anoesj/eslint-config-anoesj-nuxt';
+import { config } from 'typescript-eslint';
+
+export default config(
+  ...nuxtEslint,
+);
 ```
 
 See https://eslint.org/docs/developer-guide/shareable-configs for more info on shareable ESLint configs.
