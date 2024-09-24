@@ -177,6 +177,11 @@ export default tseslint.config(
       }],
       // Leave to taste.
       '@stylistic/padded-blocks': 'off',
+      '@stylistic/no-multiple-empty-lines': ['warn', {
+        max: 2,
+        maxBOF: 0,
+        maxEOF: 1,
+      }],
       // Requires semicolons in type declarations.
       '@stylistic/member-delimiter-style': ['error', {
         multiline: {
