@@ -40,7 +40,13 @@ export default tseslint.config(
         },
       },
     },
-    files: ['*.ts', '*.vue'],
+    files: [
+      '**/*.js',
+      '**/*.mjs',
+      '**/*.cjs',
+      '**/*.ts',
+      '**/*.vue',
+    ],
     rules: {
 
       /***********************
