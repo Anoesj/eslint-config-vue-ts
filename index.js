@@ -67,12 +67,7 @@ export default config(
         before: true,
         after: true,
       }],
-      // TS already checks for this, typescript-eslint recommends to disable it.
-      'no-undef': 'off',
-      // Replaced by @typescript-eslint/no-unused-vars
-      'no-unused-vars': 'off',
-      'no-debugger': 'off',
-      'no-redeclare': 'off',
+      'no-debugger': 'warn',
       'no-case-declarations': 'warn',
       'array-callback-return': 'warn',
       'eqeqeq': ['error', 'always', {
@@ -82,9 +77,6 @@ export default config(
       'quote-props': ['error', 'consistent-as-needed'],
       'quotes': ['error', 'single', {
         allowTemplateLiterals: true,
-      }],
-      'semi': ['error', 'always', {
-        omitLastInOneLineBlock: false,
       }],
       'no-multi-spaces': ['warn', {
         ignoreEOLComments: true,
@@ -109,7 +101,8 @@ export default config(
       'space-before-function-paren': 'error',
       'space-in-parens': ['error', 'never'],
       'spaced-comment': ['warn', 'always', {
-        exceptions: ['*', '/'],
+        exceptions: ['*', '/'], // handles dividers
+        markers: ['/'], // handles `/// <reference />` comments
       }],
       'switch-colon-spacing': ['error', {
         after: true,
@@ -135,26 +128,15 @@ export default config(
         commentPattern: 'fallthrough',
       }],
 
-      // TypeScript rules:
-      '@typescript-eslint/no-non-null-assertion': 'off',
-      '@typescript-eslint/no-inferrable-types': 'off',
-      '@typescript-eslint/ban-ts-comment': ['error', {
-        'ts-ignore': 'allow-with-description',
-      }],
-      '@typescript-eslint/consistent-type-imports': ['error', {
-        prefer: 'type-imports',
-        fixStyle: 'inline-type-imports',
-      }],
-      '@typescript-eslint/member-delimiter-style': ['error', {
-        multiline: {
-          delimiter: 'semi',
-          requireLast: true,
-        },
-        singleline: {
-          delimiter: 'semi',
-          requireLast: true,
-        },
-      }],
+      /***********************
+      *   TypeScript rules   *
+      ***********************/
+
+      // TS already checks for this, typescript-eslint recommends to disable it.
+      'no-undef': 'off',
+
+      // Replaced by @typescript-eslint/no-unused-vars
+      'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': ['warn', {
         vars: 'all',
         args: 'after-used',
@@ -164,7 +146,55 @@ export default config(
         caughtErrorsIgnorePattern: '^_',
       }],
 
-      // Vue rules:
+      // Turned off because this has false positives on TS function overloading.
+      'no-redeclare': 'off',
+
+      // Turns off regular 'semi' rule and turns on '@typescript-eslint/semi' rule
+      // instead (this will make Automatic Semicolon Insertion work with TS declarations).
+      'semi': 'off',
+      '@typescript-eslint/semi': ['error', 'always', {
+        omitLastInOneLineBlock: false,
+      }],
+
+      // Turn off default ESLint rule that disallows TS class method overloading:
+      'no-dupe-class-members': 'off',
+      '@typescript-eslint/no-dupe-class-members': 'error',
+
+      // Allows non-null assertions (!.)
+      '@typescript-eslint/no-non-null-assertion': 'off',
+
+      // Allow typing variables where types can be auto-inferred.
+      '@typescript-eslint/no-inferrable-types': 'off',
+
+      '@typescript-eslint/ban-ts-comment': ['error', {
+        'ts-ignore': 'allow-with-description',
+      }],
+
+      // NOTE: Seems unneeded since `verbatimModuleSyntax`,
+      // See: https://typescript-eslint.io/rules/consistent-type-imports/#comparison-with-importsnotusedasvalues--verbatimmodulesyntax
+      // '@typescript-eslint/consistent-type-imports': ['error', {
+      //   prefer: 'type-imports',
+      //   fixStyle: 'inline-type-imports',
+      // }],
+
+      // Requires semicolons in type declarations.
+      // TODO: We may need to include ESLint Stylistic rules for this. See: https://eslint.style/
+      '@typescript-eslint/member-delimiter-style': ['error', {
+        multiline: {
+          delimiter: 'semi',
+          requireLast: true,
+        },
+        singleline: {
+          delimiter: 'semi',
+          requireLast: true,
+        },
+        multilineDetection: 'brackets',
+      }],
+
+      /************************
+       *  Vue specific rules  *
+       ***********************/
+
       'vue/attribute-hyphenation': ['warn', 'never', {}],
       'vue/no-v-html': 'off',
       'vue/html-self-closing': ['error', {
