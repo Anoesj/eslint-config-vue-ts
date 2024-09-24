@@ -99,7 +99,7 @@ export default tseslint.config(
         objects: 'always-multiline',
         imports: 'always-multiline',
         exports: 'always-multiline',
-        functions: 'always-multiline', // do not require in multiline function calls, but do allow
+        functions: 'only-multiline', // do not require in multiline function calls, but do allow
         enums: 'always-multiline',
         generics: 'always-multiline',
         tuples: 'always-multiline',
