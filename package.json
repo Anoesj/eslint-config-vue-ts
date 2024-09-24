@@ -1,0 +1,32 @@
+{
+  "name": "@anoesj/eslint-config-anoesj-nuxt",
+  "version": "0.0.0",
+  "description": "Default ESLint config for Anoesj - Nuxt edition",
+  "type": "module",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/anoesj/eslint-config-anoesj-nuxt.git"
+  },
+  "keywords": [
+    "eslint",
+    "eslintconfig"
+  ],
+  "author": "Anoesj Sadraee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anoesj/eslint-config-anoesj-nuxt/issues"
+  },
+  "homepage": "https://github.com/anoesj/eslint-config-anoesj-nuxt#readme",
+  "peerDependencies": {
+    "eslint": ">= 9"
+  },
+  "dependencies": {
+    "@eslint/js": "^9.11.1",
+    "@vue/eslint-config-typescript": "^13.0.0",
+    "eslint-plugin-vue": "^9.28.0",
+    "globals": "^15.9.0",
+    "typescript-eslint": "^8.7.0",
+    "vue-eslint-parser": "^9.4.3"
+  }
+}
