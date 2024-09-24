@@ -22,7 +22,7 @@ export default tseslint.config(
   ...tseslint.configs.recommended,
   stylistic.configs['recommended-flat'],
   // @ts-ignore
-  // vueEslint.configs['flat/recommended'],
+  ...vueEslint.configs['flat/recommended'],
   {
     languageOptions: {
       globals: {
