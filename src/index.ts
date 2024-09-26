@@ -93,6 +93,8 @@ export default function (options?: {
           VariableDeclarator: 'first',
           SwitchCase: 1,
         }],
+        // See my question at: https://github.com/eslint-stylistic/eslint-stylistic/issues/545#issuecomment-2376586842
+        '@stylistic/indent-binary-ops': 'off',
         '@stylistic/max-len': ['warn', {
           code: 140,
         }],
