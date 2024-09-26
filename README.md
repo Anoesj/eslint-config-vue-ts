@@ -23,17 +23,17 @@ You need to have NPM package `eslint` installed in order to start using ESLint w
 ```
 
 ## Usage
-### Without type checking
+In your `eslint.config.js` file, write the following for a simple, default setup:
 ```js
+// @ts-check
 import vueTsEslint from '@anoesj/eslint-config-vue-ts';
 
-export default [
-  ...vueTsEslint(),
-];
+export default vueTsEslint();
 ```
 
-### With type checking
+When you want to add more rules of your own and you want a type checking on your config file, use `typescript-eslint`'s `config` function:
 ```js
+// @ts-check
 import vueTsEslint from '@anoesj/eslint-config-vue-ts';
 import { config } from 'typescript-eslint';
 
@@ -42,10 +42,32 @@ export default config(
 );
 ```
 
+### Configuration
 You can pass an object to configure some options:
 - `ignores`: override the default list of files to ignore
 - `files`: override the default list of files to lint
 - `rules`: add or override the default rules
+
+**Example:**
+```js
+// @ts-check
+import vueTsEslint, {
+  defaultIgnores,
+  defaultFiles,
+} from '@anoesj/eslint-config-vue-ts';
+
+export default vueTsEslint({
+  ignores: [
+    ...defaultIgnores,
+    'cypress/**',
+    '.nuxt-e2e-build/**',
+  ],
+  files: defaultFiles.filter((file) => !file.includes('js')),
+  rules: {
+    '@stylistic/max-len': 'off',
+  },
+});
+```
 
 ## Development
 ### Maintenance

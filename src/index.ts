@@ -8,6 +8,24 @@ import vueEslintParser from 'vue-eslint-parser';
 // @ts-expect-error - until this PR is included in a release: https://github.com/vuejs/eslint-plugin-vue/pull/2528
 import vueEslint from 'eslint-plugin-vue';
 
+export const defaultIgnores = [
+  // Ignore compiled Vue files
+  'dist/**',
+  // Ignore compiled Nuxt files
+  '.nuxt/**',
+  '.output/**',
+];
+
+export const defaultFiles = [
+  '**/*.js',
+  '**/*.mjs',
+  '**/*.cjs',
+  '**/*.ts',
+  '**/*.mts',
+  '**/*.cts',
+  '**/*.vue',
+];
+
 export default function (options?: {
   ignores?: TSESLint.FlatConfig.Config['ignores'];
   files?: TSESLint.FlatConfig.Config['files'];
@@ -16,13 +34,7 @@ export default function (options?: {
   return tseslint.config(
     {
       name: '@anoesj/vue-ts/ignores',
-      ignores: options?.ignores ?? [
-        // Ignore compiled Vue files
-        'dist/**',
-        // Ignore compiled Nuxt files
-        '.nuxt/**',
-        '.output/**',
-      ],
+      ignores: options?.ignores ?? defaultIgnores,
     },
     js.configs.recommended as TSESLint.FlatConfig.Config,
     ...tseslint.configs.recommended,
@@ -46,15 +58,7 @@ export default function (options?: {
           },
         },
       },
-      files: options?.files ?? [
-        '**/*.js',
-        '**/*.mjs',
-        '**/*.cjs',
-        '**/*.ts',
-        '**/*.mts',
-        '**/*.cts',
-        '**/*.vue',
-      ],
+      files: options?.files ?? defaultFiles,
       rules: {
         /***********************
         *     Basic rules      *

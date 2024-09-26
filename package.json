@@ -29,8 +29,8 @@
     "eslintconfig"
   ],
   "scripts": {
-    "build": "tsup --format esm --clean --dts",
-    "watch": "tsup --format esm --watch",
+    "build": "tsup --clean --dts",
+    "watch": "tsup --watch",
     "inspect": "@eslint/config-inspector",
     "release": "bumpp && pnpm publish --access public"
   },
