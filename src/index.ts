@@ -26,6 +26,19 @@ export const defaultFiles = [
   '**/*.vue',
 ];
 
+const maxLenOptions = {
+  code: 140,
+  tabWidth: 2,
+  comments: 140,
+  ignorePattern: '',
+  ignoreComments: true,
+  ignoreTrailingComments: false,
+  ignoreUrls: true,
+  ignoreStrings: false,
+  ignoreTemplateLiterals: false,
+  ignoreRegExpLiterals: false,
+};
+
 export default function (options?: {
   ignores?: TSESLint.FlatConfig.Config['ignores'];
   files?: TSESLint.FlatConfig.Config['files'];
@@ -96,7 +109,7 @@ export default function (options?: {
         // See my question at: https://github.com/eslint-stylistic/eslint-stylistic/issues/545#issuecomment-2376586842
         '@stylistic/indent-binary-ops': 'off',
         '@stylistic/max-len': ['warn', {
-          code: 140,
+          ...maxLenOptions,
         }],
         '@stylistic/comma-dangle': ['error', {
           arrays: 'always-multiline',
@@ -318,6 +331,13 @@ export default function (options?: {
       rules: {
         '@stylistic/indent': 'off',
         '@stylistic/indent-binary-ops': 'off',
+        '@stylistic/max-len': 'off',
+        'vue/max-len': ['error', {
+          ...maxLenOptions,
+          ignoreHTMLAttributeValues: false,
+          ignoreHTMLTextContents: true,
+          template: 140,
+        }],
       },
     },
   );
