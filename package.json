@@ -1,23 +1,36 @@
 {
-  "name": "@anoesj/eslint-config-anoesj-vue-ts",
-  "version": "0.1.0",
-  "description": "Default ESLint config for Anoesj - Nuxt edition",
+  "name": "@anoesj/eslint-config-vue-ts",
+  "version": "0.2.0",
+  "description": "Anoesj's ESLint config for Vue and Nuxt projects with TypeScript",
+  "author": "Anoesj Sadraee (https://github.com/anoesj)",
+  "license": "MIT",
+  "homepage": "https://github.com/anoesj/eslint-config-vue-ts#readme",
+  "packageManager": "pnpm@9.11.0",
   "type": "module",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/anoesj/eslint-config-anoesj-vue-ts.git"
+    "url": "git+ssh://git@github.com/anoesj/eslint-config-vue-ts.git"
   },
   "keywords": [
     "eslint",
     "eslintconfig"
   ],
-  "author": "Anoesj Sadraee",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/anoesj/eslint-config-anoesj-vue-ts/issues"
+  "scripts": {
+    "build": "tsup --format esm --clean --dts",
+    "watch": "tsup --format esm --watch",
+    "inspect": "@eslint/config-inspector",
+    "release": "bumpp && pnpm publish"
   },
-  "homepage": "https://github.com/anoesj/eslint-config-anoesj-vue-ts#readme",
   "peerDependencies": {
     "eslint": ">= 9"
   },
@@ -28,5 +41,13 @@
     "globals": "^15.9.0",
     "typescript-eslint": "^8.7.0",
     "vue-eslint-parser": "^9.4.3"
+  },
+  "devDependencies": {
+    "@eslint/config-inspector": "^0.5.4",
+    "bumpp": "^9.5.2",
+    "eslint": "^9.11.1",
+    "jiti": "^2.0.0",
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.2"
   }
 }
