@@ -39,6 +39,13 @@ import { config } from 'typescript-eslint';
 
 export default config(
   ...vueTsEslint(),
+  {
+    files: ['src/components/**/*Icon*.vue'],
+    rules: {
+      // Disable max-len for icon components, as they usually contain long SVG paths
+      '@stylistic/max-len': 'off',
+    },
+  },
 );
 ```
 
