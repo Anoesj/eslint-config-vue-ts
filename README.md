@@ -16,9 +16,16 @@ You need to have NPM package `eslint` installed in order to start using ESLint w
 ```json
 {
   "editor.codeActionsOnSave": {
-    // "source.fixAll": "never", // optional
+    "source.fixAll": "never", // optional
     "source.fixAll.eslint": "explicit"
   },
+  "eslint.format.enable": true,
+  "eslint.useFlatConfig": true,
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "vue",
+  ],
 }
 ```
 
