@@ -1,6 +1,6 @@
 {
   "name": "@anoesj/eslint-config-vue-ts",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Anoesj's ESLint config for Vue and Nuxt projects with TypeScript",
   "author": "Anoesj Sadraee (https://github.com/anoesj)",
   "license": "MIT",
