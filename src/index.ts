@@ -182,7 +182,8 @@ export default function (options?: {
         '@stylistic/semi': ['error', 'always', {
           omitLastInOneLineBlock: false,
         }],
-        '@stylistic/multiline-ternary': ['error', 'always-multiline'],
+        // There are so many ways to write a ternary, it's not worth enforcing a single style.
+        '@stylistic/multiline-ternary': 'off',
         '@stylistic/operator-linebreak': ['error', 'before', {
           overrides: {
             '=': 'ignore',
