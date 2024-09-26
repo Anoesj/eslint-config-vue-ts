@@ -42,6 +42,11 @@ export default config(
 );
 ```
 
+You can pass an object to configure some options:
+- `ignores`: override the default list of files to ignore
+- `files`: override the default list of files to lint
+- `rules`: add or override the default rules
+
 ## Development
 ### Maintenance
 This is a project I mainly use for my own projects, but feel free to use it if you like it. I may not always be able to keep up with the latest changes in the ESLint ecosystem. Also, know that I may introduce breaking changes without notice, but I'll try to keep this `README.md` up-to-date.
