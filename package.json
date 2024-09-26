@@ -32,7 +32,7 @@
     "build": "tsup --format esm --clean --dts",
     "watch": "tsup --format esm --watch",
     "inspect": "@eslint/config-inspector",
-    "release": "bumpp && pnpm publish"
+    "release": "bumpp && pnpm publish --access public"
   },
   "peerDependencies": {
     "eslint": ">= 9"
