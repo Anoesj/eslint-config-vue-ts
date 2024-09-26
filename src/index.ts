@@ -200,6 +200,8 @@ export default function (options?: {
           maxBOF: 0,
           maxEOF: 1,
         }],
+        // Not quite to taste, see discussion at: https://github.com/eslint-stylistic/eslint-stylistic/issues/244
+        '@stylistic/type-generic-spacing': 'error',
         // Requires semicolons in type declarations.
         '@stylistic/member-delimiter-style': ['error', {
           multiline: {
