@@ -167,6 +167,8 @@ export default function (options?: {
         }],
         '@stylistic/template-tag-spacing': ['error', 'never'],
         '@stylistic/template-curly-spacing': ['error', 'never'],
+        '@stylistic/generator-star-spacing': ['error', 'after'],
+        '@stylistic/yield-star-spacing': ['error', 'after'],
         '@stylistic/space-before-blocks': 'error',
         '@stylistic/space-before-function-paren': ['error', 'always'],
         '@stylistic/space-in-parens': ['error', 'never'],
