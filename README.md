@@ -20,7 +20,9 @@ You need to have NPM package `eslint` installed in order to start using ESLint w
     "source.fixAll.eslint": "explicit"
   },
   "eslint.format.enable": true,
+    // Required in vscode-eslint < v3.0.10 only
   "eslint.useFlatConfig": true,
+  // This should not be necessary anymore (https://github.com/microsoft/vscode-eslint#version-204)
   "eslint.validate": [
     "javascript",
     "typescript",
