@@ -5,7 +5,6 @@ import tseslint from 'typescript-eslint';
 import type { TSESLint } from '@typescript-eslint/utils';
 import stylistic from '@stylistic/eslint-plugin';
 import vueEslintParser from 'vue-eslint-parser';
-// @ts-expect-error - until this PR is included in a release: https://github.com/vuejs/eslint-plugin-vue/pull/2528
 import vueEslint from 'eslint-plugin-vue';
 
 export const defaultIgnores = [
