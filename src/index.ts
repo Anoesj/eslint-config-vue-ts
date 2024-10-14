@@ -337,7 +337,7 @@ export default function (options?: {
         '@stylistic/indent': 'off',
         '@stylistic/indent-binary-ops': 'off',
         '@stylistic/max-len': 'off',
-        'vue/max-len': ['error', {
+        'vue/max-len': ['warn', {
           ...maxLenOptions,
           ignoreHTMLAttributeValues: false,
           ignoreHTMLTextContents: true,
