@@ -1,5 +1,4 @@
 import globals from 'globals';
-// @ts-expect-error - I don't know why they don't publish types for this
 import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import type { TSESLint } from '@typescript-eslint/utils';
