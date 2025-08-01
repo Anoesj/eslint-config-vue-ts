@@ -49,7 +49,7 @@ export default function (options?: {
     },
     js.configs.recommended as TSESLint.FlatConfig.Config,
     ...tseslint.configs.recommended,
-    stylistic.configs['recommended-flat'],
+    stylistic.configs.recommended,
     ...vueEslint.configs['flat/recommended'] as TSESLint.FlatConfig.ConfigArray,
     {
       name: '@anoesj/vue-ts/base',
