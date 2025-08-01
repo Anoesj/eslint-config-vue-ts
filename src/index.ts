@@ -125,7 +125,7 @@ export default function (options?: {
         }],
         '@stylistic/quote-props': ['error', 'consistent-as-needed'],
         '@stylistic/quotes': ['error', 'single', {
-          allowTemplateLiterals: true,
+          allowTemplateLiterals: 'always',
         }],
         '@stylistic/no-confusing-arrow': 'error',
         '@stylistic/no-multi-spaces': ['warn', {
