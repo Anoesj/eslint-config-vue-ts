@@ -340,7 +340,7 @@ export default function (options?: {
           alphabetical: false,
         }],
         'vue/v-on-event-hyphenation': ['error', 'never', {
-          autofix: false,
+          autofix: true,
           ignore: [],
           ignoreTags: [],
         }],
