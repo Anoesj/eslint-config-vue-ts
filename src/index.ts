@@ -75,15 +75,15 @@ export default function (options?: {
         *     Basic rules      *
         ***********************/
 
-        'no-debugger': 'warn',
-        'no-case-declarations': 'warn',
-        'array-callback-return': 'warn',
+        'no-debugger': 'error',
+        'no-case-declarations': 'error',
+        'array-callback-return': 'error',
         'eqeqeq': ['error', 'always', {
           // Allow usage of != null
           null: 'ignore',
         }],
         'arrow-body-style': 'off',
-        'curly': ['warn', 'all'],
+        'curly': ['error', 'all'],
         'no-var': 'error',
         'prefer-const': 'error',
         'prefer-destructuring': ['error', {
@@ -128,7 +128,7 @@ export default function (options?: {
           allowTemplateLiterals: 'always',
         }],
         '@stylistic/no-confusing-arrow': 'error',
-        '@stylistic/no-multi-spaces': ['warn', {
+        '@stylistic/no-multi-spaces': ['error', {
           ignoreEOLComments: true,
           exceptions: {
             BinaryExpression: false,
@@ -171,7 +171,7 @@ export default function (options?: {
         '@stylistic/space-before-function-paren': ['error', 'always'],
         '@stylistic/space-in-parens': ['error', 'never'],
         '@stylistic/arrow-parens': ['error', 'always'],
-        '@stylistic/spaced-comment': ['warn', 'always', {
+        '@stylistic/spaced-comment': ['error', 'always', {
           // handles dividers
           exceptions: ['*', '/'],
           // handles `/// <reference />` comments
@@ -195,12 +195,11 @@ export default function (options?: {
         }],
         // Leave to taste.
         '@stylistic/padded-blocks': 'off',
-        '@stylistic/no-multiple-empty-lines': ['warn', {
+        '@stylistic/no-multiple-empty-lines': ['error', {
           max: 2,
           maxBOF: 0,
           maxEOF: 1,
         }],
-        // Not quite to taste, see discussion at: https://github.com/eslint-stylistic/eslint-stylistic/issues/244
         '@stylistic/type-generic-spacing': 'error',
         // Requires semicolons in type declarations.
         '@stylistic/member-delimiter-style': ['error', {
@@ -248,13 +247,14 @@ export default function (options?: {
 
         '@typescript-eslint/ban-ts-comment': ['error', {
           'ts-ignore': 'allow-with-description',
+          'ts-expect-error': 'allow-with-description',
         }],
 
         /************************
          *  Vue specific rules  *
          ***********************/
 
-        'vue/attribute-hyphenation': ['warn', 'never', {}],
+        'vue/attribute-hyphenation': ['error', 'never', {}],
         'vue/no-v-html': 'off',
         'vue/html-self-closing': ['error', {
           html: {
@@ -265,7 +265,7 @@ export default function (options?: {
           svg: 'always',
           math: 'always',
         }],
-        'vue/html-closing-bracket-spacing': ['warn', {
+        'vue/html-closing-bracket-spacing': ['error', {
           selfClosingTag: 'never',
         }],
         'vue/singleline-html-element-content-newline': ['off', {}],
@@ -281,7 +281,7 @@ export default function (options?: {
           singleline: 'never',
           multiline: 'always',
         }],
-        'vue/script-indent': ['warn', 2, {
+        'vue/script-indent': ['error', 2, {
           baseIndent: 1,
           switchCase: 1,
           ignores: [],
@@ -323,7 +323,27 @@ export default function (options?: {
             'renderError',
           ],
         }],
-        'vue/v-on-event-hyphenation': 'off',
+        'vue/attributes-order': ['error', {
+          order: [
+            'LIST_RENDERING',
+            'CONDITIONALS',
+            'DEFINITION',
+            'RENDER_MODIFIERS',
+            'GLOBAL',
+            ['UNIQUE', 'SLOT'],
+            'TWO_WAY_BINDING',
+            'OTHER_DIRECTIVES',
+            'OTHER_ATTR',
+            'EVENTS',
+            'CONTENT',
+          ],
+          alphabetical: false,
+        }],
+        'vue/v-on-event-hyphenation': ['error', 'never', {
+          autofix: false,
+          ignore: [],
+          ignoreTags: [],
+        }],
         'vue/multi-word-component-names': 'off',
         ...(options?.rules ?? {}),
       },
