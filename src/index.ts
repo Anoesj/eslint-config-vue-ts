@@ -1,10 +1,11 @@
 import globals from 'globals';
 import js from '@eslint/js';
-import tseslint from 'typescript-eslint';
-import type { TSESLint } from '@typescript-eslint/utils';
+import { defineConfig } from 'eslint/config';
+import tsEslint from 'typescript-eslint';
 import stylistic from '@stylistic/eslint-plugin';
 import vueEslintParser from 'vue-eslint-parser';
 import vueEslint from 'eslint-plugin-vue';
+import { Linter } from 'eslint';
 
 export const defaultIgnores = [
   // Ignore compiled Vue files
@@ -38,19 +39,19 @@ const maxLenOptions = {
 };
 
 export default function (options?: {
-  ignores?: TSESLint.FlatConfig.Config['ignores'];
-  files?: TSESLint.FlatConfig.Config['files'];
-  rules?: TSESLint.FlatConfig.Config['rules'];
+  ignores?: Linter.Config['ignores'];
+  files?: Linter.Config['files'];
+  rules?: Linter.Config['rules'];
 }) {
-  return tseslint.config(
+  return defineConfig(
     {
       name: '@anoesj/vue-ts/ignores',
       ignores: options?.ignores ?? defaultIgnores,
     },
-    js.configs.recommended as TSESLint.FlatConfig.Config,
-    ...tseslint.configs.recommended,
+    js.configs.recommended,
+    ...tsEslint.configs.recommended,
     stylistic.configs.recommended,
-    ...vueEslint.configs['flat/recommended'] as TSESLint.FlatConfig.ConfigArray,
+    ...vueEslint.configs['flat/recommended'],
     {
       name: '@anoesj/vue-ts/base',
       languageOptions: {
@@ -61,7 +62,7 @@ export default function (options?: {
         },
         parser: vueEslintParser,
         parserOptions: {
-          parser: tseslint.parser,
+          parser: tsEslint.parser,
           sourceType: 'module',
           ecmaVersion: 'latest',
           ecmaFeatures: {

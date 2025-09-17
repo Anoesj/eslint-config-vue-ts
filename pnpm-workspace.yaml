@@ -1,2 +1,6 @@
+shamefullyHoist: true
+
+ignoreWorkspaceRootCheck: true
+
 onlyBuiltDependencies:
   - esbuild

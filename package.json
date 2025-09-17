@@ -5,7 +5,7 @@
   "author": "Anoesj Sadraee (https://github.com/anoesj)",
   "license": "MIT",
   "homepage": "https://github.com/anoesj/eslint-config-vue-ts#readme",
-  "packageManager": "pnpm@10.15.0",
+  "packageManager": "pnpm@10.17.0",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -38,17 +38,17 @@
     "eslint": ">= 9"
   },
   "dependencies": {
-    "@eslint/js": "^9.34.0",
-    "@stylistic/eslint-plugin": "^5.2.3",
+    "@eslint/js": "^9.35.0",
+    "@stylistic/eslint-plugin": "^5.3.1",
     "eslint-plugin-vue": "^10.4.0",
-    "globals": "^16.3.0",
-    "typescript-eslint": "^8.41.0",
+    "globals": "^16.4.0",
+    "typescript-eslint": "^8.44.0",
     "vue-eslint-parser": "^10.2.0"
   },
   "devDependencies": {
     "@eslint/config-inspector": "^1.2.0",
     "bumpp": "^10.2.3",
-    "eslint": "^9.34.0",
+    "eslint": "^9.35.0",
     "jiti": "^2.5.1",
     "tsup": "^8.5.0",
     "typescript": "^5.9.2"
