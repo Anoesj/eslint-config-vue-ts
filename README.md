@@ -20,14 +20,6 @@ You need to have NPM package `eslint` installed in order to start using ESLint w
     "source.fixAll.eslint": "explicit"
   },
   "eslint.format.enable": true,
-    // Required in vscode-eslint < v3.0.10 only
-  "eslint.useFlatConfig": true,
-  // This should not be necessary anymore (https://github.com/microsoft/vscode-eslint#version-204)
-  "eslint.validate": [
-    "javascript",
-    "typescript",
-    "vue",
-  ],
 }
 ```
 
@@ -40,13 +32,13 @@ import vueTsEslint from '@anoesj/eslint-config-vue-ts';
 export default vueTsEslint();
 ```
 
-When you want to add more rules of your own and you want a type checking on your config file, use `typescript-eslint`'s `config` function:
+When you want to add more rules of your own and you want a type checking on your config file, use `defineConfig` from `eslint/config`:
 ```js
 // @ts-check
 import vueTsEslint from '@anoesj/eslint-config-vue-ts';
-import { config } from 'typescript-eslint';
+import { defineConfig } from 'eslint/config';
 
-export default config(
+export default defineConfig(
   ...vueTsEslint(),
   {
     files: ['src/components/**/*Icon*.vue'],
@@ -92,7 +84,7 @@ This is a project I mainly use for my own projects, but feel free to use it if y
 If you have any suggestions or improvements, feel free to open an issue or a pull request. I may not respond immediately, but I'll try to get back to you as soon as possible.
 
 ### Other
-- This is written in TypeScript and converted to `.js` & `.d.ts` files using `tsup`.
+- This is written in TypeScript and converted to `.js` & `.d.ts` files using `tsdown`.
 - I lint this project using itself, using experimental `eslint.config.ts` file loading (requires `jiti` + ESLint `unstable_ts_config` flag).
 
 ## More
