@@ -50,6 +50,25 @@ export default defineConfig(
 );
 ```
 
+If this causes any type errors, what may be happening is that another package is installing `@types/eslint`, which is a package that can be removed entirely. Using `pnpm` `overrides` in your `pnpm-workspace.yaml` or `package.json`, you can prevent the installation of the package:
+
+#### pnpm-workspace.yaml
+```yaml
+overrides:
+  '@types/eslint': '-'
+```
+
+#### package.json
+```json
+{
+  "pnpm": {
+    "overrides": {
+      "@types/eslint": "-"
+    }
+  }
+}
+```
+
 ### Configuration
 You can pass an object to configure some options:
 - `ignores`: override the default list of files to ignore
