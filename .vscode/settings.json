@@ -6,7 +6,7 @@
     "source.fixAll.eslint": "explicit"
   },
   "eslint.options": {
-    "flags": ["unstable_ts_config"],
+    "flags": ["unstable_native_nodejs_ts_config"],
   },
   "eslint.validate": [
     "javascript",

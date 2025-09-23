@@ -32,7 +32,7 @@ import vueTsEslint from '@anoesj/eslint-config-vue-ts';
 export default vueTsEslint();
 ```
 
-When you want to add more rules of your own and you want a type checking on your config file, use `defineConfig` from `eslint/config`:
+When you want to add more rules of your own and you want type checking on your config file, use `defineConfig` from `eslint/config`:
 ```js
 // @ts-check
 import vueTsEslint from '@anoesj/eslint-config-vue-ts';
@@ -52,13 +52,13 @@ export default defineConfig(
 
 If this causes any type errors, what may be happening is that another package is installing `@types/eslint`, which is a package that can be removed entirely. Using `pnpm` `overrides` in your `pnpm-workspace.yaml` or `package.json`, you can prevent the installation of the package:
 
-#### pnpm-workspace.yaml
+#### `pnpm-workspace.yaml`
 ```yaml
 overrides:
   '@types/eslint': '-'
 ```
 
-#### package.json
+#### `package.json`
 ```json
 {
   "pnpm": {
@@ -96,6 +96,11 @@ export default vueTsEslint({
 });
 ```
 
+### Caveats
+While ESLint provides its own `defineConfig` function, it does not provide type definitions for rules yet. This is a work in progress in the ESLint ecosystem:
+- https://github.com/eslint/eslint/issues/19721
+- https://github.com/eslint/eslint/pull/19843
+
 ## Development
 ### Maintenance
 This is a project I mainly use for my own projects, but feel free to use it if you like it. I may not always be able to keep up with the latest changes in the ESLint ecosystem. Also, know that I may introduce breaking changes without notice, but I'll try to keep this `README.md` up-to-date.
@@ -103,8 +108,31 @@ This is a project I mainly use for my own projects, but feel free to use it if y
 If you have any suggestions or improvements, feel free to open an issue or a pull request. I may not respond immediately, but I'll try to get back to you as soon as possible.
 
 ### Other
-- This is written in TypeScript and converted to `.js` & `.d.ts` files using `tsdown`.
-- I lint this project using itself, using experimental `eslint.config.ts` file loading (requires `jiti` + ESLint `unstable_ts_config` flag).
+#### Building
+This project is written in TypeScript and converted to `.js` & `.d.ts` files using `tsdown`.
+
+#### Linting
+I lint this project using itself, using experimental `eslint.config.ts` file loading.
+
+Before Node v22.10.0, you could not load TS files natively in Node. It required `jiti` as a project dependency and configuring ESLint to use the `unstable_ts_config` flag, e.g. in your `.vscode/settings.json`:
+```json
+{
+  "eslint.options": {
+    "flags": ["unstable_ts_config"],
+  },
+}
+```
+
+Since Node v22.18.0, you can use the native support for TS files in Node. This requires configuring ESLint to use the `unstable_native_nodejs_ts_config` flag instead, e.g. in your `.vscode/settings.json`:
+```json
+{
+  "eslint.options": {
+    "flags": ["unstable_native_nodejs_ts_config"],
+  },
+}
+```
+
+Note that between Node v22.10.0 and v22.18.0, you could use the native support for TS files in Node, but it was under Node's `--experimental-strip-types` flag.
 
 ## More
 See https://eslint.org/docs/developer-guide/shareable-configs for more info on shareable ESLint configs.

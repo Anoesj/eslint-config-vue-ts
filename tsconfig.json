@@ -6,9 +6,11 @@
     "moduleResolution": "Bundler",
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
   },
   "include": [
     "**/*.ts"
-  ]
+  ],
 }
