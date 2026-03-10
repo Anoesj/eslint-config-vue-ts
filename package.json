@@ -31,7 +31,7 @@
   "scripts": {
     "build": "tsdown",
     "watch": "tsdown --watch",
-    "inspect": "@eslint/config-inspector",
+    "inspect": "eslint-config-inspector",
     "release": "bumpp && pnpm publish --access public"
   },
   "peerDependencies": {
