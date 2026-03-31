@@ -2,11 +2,15 @@ shamefullyHoist: true
 
 ignoreWorkspaceRootCheck: true
 
-onlyBuiltDependencies:
-  - esbuild
+allowBuilds:
+  esbuild: true
 
 trustPolicy: no-downgrade
 
 blockExoticSubdeps: true
 
 minimumReleaseAge: 1440
+minimumReleaseAgeExclude:
+  - typescript
+  - typescript-eslint
+  - '@typescript-eslint/*'

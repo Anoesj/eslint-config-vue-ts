@@ -42,7 +42,7 @@
     "@stylistic/eslint-plugin": "^5.10.0",
     "eslint-plugin-vue": "^10.8.0",
     "globals": "^17.4.0",
-    "typescript-eslint": "^8.57.2",
+    "typescript-eslint": "^8.58.0",
     "vue-eslint-parser": "^10.4.0"
   },
   "devDependencies": {
@@ -50,6 +50,6 @@
     "bumpp": "^11.0.1",
     "eslint": "^10.1.0",
     "tsdown": "^0.21.7",
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.2"
   }
 }
