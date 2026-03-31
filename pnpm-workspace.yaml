@@ -4,3 +4,9 @@ ignoreWorkspaceRootCheck: true
 
 onlyBuiltDependencies:
   - esbuild
+
+trustPolicy: no-downgrade
+
+blockExoticSubdeps: true
+
+minimumReleaseAge: 1440
