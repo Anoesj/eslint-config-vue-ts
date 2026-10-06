@@ -1,0 +1,45 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions: {}
+
+jobs:
+  release:
+    # Prevents this workflow from running on forks
+    if: github.repository == 'Anoesj/eslint-config-vue-ts'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      # Required for npm trusted publishing (OIDC) and provenance
+      id-token: write
+    # Protected environment: the job waits for approval before it can publish
+    environment: Release
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      # Installs pnpm (version from `packageManager`) and Node.js, then runs `pnpm install`
+      - name: Install pnpm, Node.js and deps
+        uses: pnpm/setup@v3
+        with:
+          runtime: node@24
+
+      - name: Lint
+        run: pnpm run lint
+
+      - name: Typecheck
+        run: pnpm run typecheck
+
+      - name: Build
+        run: pnpm run build
+
+      # pnpm exchanges the GitHub OIDC token for a short-lived npm token (trusted publishing).
+      # `--no-git-checks`: the tag checkout is a detached HEAD, not `main`.
+      - name: Publish
+        run: pnpm publish --access public --provenance --no-git-checks

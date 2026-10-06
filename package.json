@@ -5,13 +5,13 @@
   "author": "Anoesj Sadraee (https://github.com/anoesj)",
   "license": "MIT",
   "homepage": "https://github.com/anoesj/eslint-config-vue-ts#readme",
-  "packageManager": "pnpm@10.33.0",
+  "packageManager": "pnpm@12.9.1",
   "type": "module",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
   "exports": {
     ".": {
-      "import": "./dist/index.js"
+      "import": "./dist/index.mjs"
     }
   },
   "files": [
@@ -19,7 +19,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/anoesj/eslint-config-vue-ts.git"
+    "url": "git+https://github.com/Anoesj/eslint-config-vue-ts.git"
   },
   "bugs": {
     "url": "https://github.com/anoesj/eslint-config-vue-ts/issues"
@@ -32,7 +32,9 @@
     "build": "tsdown",
     "watch": "tsdown --watch",
     "inspect": "eslint-config-inspector",
-    "release": "bumpp && pnpm publish --access public"
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "release": "bumpp"
   },
   "peerDependencies": {
     "eslint": ">= 10"
@@ -40,16 +42,16 @@
   "dependencies": {
     "@eslint/js": "^10.0.1",
     "@stylistic/eslint-plugin": "^5.10.0",
-    "eslint-plugin-vue": "^10.8.0",
-    "globals": "^17.4.0",
-    "typescript-eslint": "^8.58.0",
-    "vue-eslint-parser": "^10.4.0"
+    "eslint-plugin-vue": "^10.11.1",
+    "globals": "^17.13.0",
+    "typescript-eslint": "^8.71.1",
+    "vue-eslint-parser": "^10.4.1"
   },
   "devDependencies": {
-    "@eslint/config-inspector": "^1.5.0",
-    "bumpp": "^11.0.1",
-    "eslint": "^10.1.0",
-    "tsdown": "^0.21.7",
-    "typescript": "^6.0.2"
+    "@eslint/config-inspector": "^3.5.0",
+    "bumpp": "^12.3.0",
+    "eslint": "^10.12.0",
+    "tsdown": "^0.23.0",
+    "typescript": "^6.0.3"
   }
 }

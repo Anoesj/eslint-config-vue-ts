@@ -2,9 +2,6 @@ shamefullyHoist: true
 
 ignoreWorkspaceRootCheck: true
 
-allowBuilds:
-  esbuild: true
-
 trustPolicy: no-downgrade
 
 blockExoticSubdeps: true
