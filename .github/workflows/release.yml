@@ -28,7 +28,7 @@ jobs:
       - name: Install pnpm, Node.js and deps
         uses: pnpm/setup@v3
         with:
-          runtime: node@24
+          runtime: node@26
 
       - name: Lint
         run: pnpm run lint
